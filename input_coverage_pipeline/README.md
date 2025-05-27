@@ -13,9 +13,9 @@ The goal is to:
 
 | Script | Description |
 |--------|-------------|
-| `01_convert_sam_to_bam.sbatch` | Converts `*_MACS_input.sam` files to sorted and indexed `.bam` format |
-| `02_generate_bedgraph.sh` | Creates coverage bedGraph from sorted BAM files |
-| `03_coverage_per_region.sbatch` | Calculates coverage for X, Y′, and subtelomeric regions |
+| `01_convert_sam_to_sorted_bam.sh` | Converts `*_MACS_input.sam` files to sorted and indexed `.bam` format |
+| `02_generate_coverage_from_bam.sh` | Creates coverage bedGraph from sorted BAM files |
+| `03_coverage_per_region.sh` | Calculates coverage for X, Y′, and subtelomeric regions |
 | `04_internal_20kb_bins_coverage.sbatch` | Quantifies average coverage in 20 kb internal genome bins |
 | `05_expand_bedgraph_per_base.sbatch` | Expands bedGraph to per-base resolution for fine-scale plots |
 | `region_beds/` | Folder of BED files specifying genomic regions of interest |
