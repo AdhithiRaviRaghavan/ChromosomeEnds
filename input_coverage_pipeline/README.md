@@ -30,6 +30,7 @@ The goal is to:
 
 Run each script sequentially on your HPC cluster using:
 
+For example: 
+
 ```bash
-Example run:
 sbatch 01_convert_sam_to_sorted_bam.sh
