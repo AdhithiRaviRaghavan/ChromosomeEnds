@@ -20,6 +20,7 @@ The work focuses on understanding how axis protein distribution and chromatin st
 ChromosomeEnds/
 ├── Figures/               # R scripts to generate each figure (e.g., Figure1.R)
 ├── R/                     # Modular utility functions (e.g., signal normalization, metaplots)
+├── input_coverage_pipeline/ # SLURM-ready scripts to generate input bedGraph & region coverage
 ├── README.md              # This file
 
 ```
