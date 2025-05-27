@@ -17,6 +17,8 @@ Each script defines a core function used in signal normalization, telomeric prof
 | `telo_signal.R`             | `teloSeqSignal()`                 | Extracts and smooths signal near telomeres                    |
 | `bootstrap_distribution.R`  | `AxisDistributionBootstrapped()`  | Performs genome-wide signal bootstrapping                    |
 | `annotate_ranges.R`         | `annotate_ranges()`               | Labels bins as telomeric, centromeric, or other              |
+| `metaplots.R`            | `MetaplotXwithY()`, `MetaplotXonly()`, `get_XwithY_GRanges()`, `get_Xonly_GRanges()` | Generates meta-signal plots for repetitive element comparisons   |
+
 
 ---
 
@@ -30,3 +32,5 @@ source("R/normalize_signal.R")
 source("R/telo_signal.R")
 source("R/bootstrap_distribution.R")
 source("R/annotate_ranges.R")
+source("R/metaplots.R")
+
