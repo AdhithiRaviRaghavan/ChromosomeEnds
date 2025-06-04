@@ -8,6 +8,7 @@ The goal is to:
 - Convert SAM files to sorted, indexed BAMs
 - Generate genome coverage (bedGraph format)
 - Quantify average signal in genomic features: X elements, Y' elements, subtelomeric 20 kb, and internal regions
+- Normalize regional coverage to genome-wide signal for relative enrichment or copy number estimation
 
 ## Folder Contents
 
@@ -19,6 +20,7 @@ The goal is to:
 | `04_internal_20kb_bins_coverage.sbatch` | Quantifies average coverage in 20 kb internal genome bins |
 | `05_expand_bedgraph_per_base.sbatch` | Expands bedGraph to per-base resolution for fine-scale plots |
 | `region_beds/` | Folder of BED files specifying genomic regions of interest |
+| `normalize_relative_coverage_array.sh` | Full pipeline: starts from SAM files, converts to BAM, generates bedGraph, and calculates region-wise normalized coverage (relative to genome-wide mean). Useful for comparing signal or copy number across strains.
 
 ## Dependencies
 
