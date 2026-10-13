@@ -1,54 +1,39 @@
 # ChromosomeEnds
 
-Code used for the analysis in:
+Selected analysis code for:
 
-**Raghavan et al., _"Multiple mechanisms suppress the initiation of meiotic recombination near chromosome ends"_**  
-bioRxiv 2025.02.27.640173 — [https://doi.org/10.1101/2025.02.27.640173](https://doi.org/10.1101/2025.02.27.640173)
+**Raghavan AR, *et al.* Distinct chromatin regulators downmodulate meiotic axis protein deposition and DNA break induction at chromosome ends.**
+*eLife* Reviewed Preprint (2026). [doi:10.7554/eLife.110189.1](https://doi.org/10.7554/eLife.110189.1) · Earlier version: [bioRxiv](https://doi.org/10.1101/2025.02.27.640173)
 
----
+> **Note:** This repository contains selected analysis code and is a work in progress. The complete code will be made public after final publication.
 
 ## Overview
 
-This repository contains all scripts and reusable functions used to generate the figures and results in the above manuscript.  
-The work focuses on understanding how axis protein distribution and chromatin structure suppress recombination at chromosome ends during meiosis.
+R and SLURM code that takes multiple sequencing datasets from raw alignments to publication figures, studying how chromatin regulators shape meiotic axis proteins and DNA break formation at chromosome ends in budding yeast.
 
----
+- **HPC pipeline**: alignments to BAM and bedGraph coverage, quantified across repetitive subtelomeric elements and genome-wide bins
+- **Normalisation**: genome-wide mean, spike-in normalisation between mutants, and relative coverage for copy-number comparison across strains
+- **Statistics**: bootstrapping with 95% confidence intervals, effect sizes and t-tests
+- **Profiling**: telomere-distance profiles, metaplots and genome annotation integration
 
-## Repository Structure
+## Repository structure
 
-```
-ChromosomeEnds/
-├── Figures/               # R scripts to generate each figure (e.g., Figure1.R)
-├── R/                     # Modular utility functions (e.g., signal normalization, metaplots)
-├── input_coverage_pipeline/ # SLURM-ready scripts to generate input bedGraph & region coverage
-├── README.md              # This file
+| Folder | Contents |
+|---|---|
+| [`input_coverage_pipeline/`](input_coverage_pipeline/) | SLURM coverage and normalisation pipeline |
+| [`R/`](R/) | Reusable, documented R functions |
+| [`Figures/`](Figures/) | Scripts reproducing Figures 1–3 |
 
-```
+Each folder has its own README with details.
 
----
+## Usage
 
-## Setup & Usage
+Requires R with Bioconductor (`GenomicRanges`, `rtracklayer`, `EnrichedHeatmap`), [`hwglabr2`](https://github.com/hochwagenlab/hwglabr2), `samtools` and `bedtools`.
 
-To reproduce figure panels or run individual analyses:
-
-1. Place your file -> `.bdg` or `.bed` files in a local `data/` directory (not uploaded).
-2. Run figure scripts from the `Figures/` folder.
-3. Utility functions are automatically loaded via `source("R/filename.R")`.
-
-Most analyses depend on:
-- [`hwglabr2`](https://github.com/hochwagenlab/hwglabr2)
-- `GenomicRanges`, `EnrichedHeatmap`, `ggplot2`, `rtracklayer`, and other Bioconductor tools
-
----
+1. Generate coverage on a cluster: `sbatch input_coverage_pipeline/normalize_relative_coverage_array.sh`
+2. Place `.bdg` and `.bed` files in a local `data/` folder.
+3. Run a figure script, for example `source("Figures/Figure1.R")`.
 
 ## Citation
 
-If you use or adapt this code, please cite:
-
-> Raghavan et al., 2025. _Multiple mechanisms suppress the initiation of meiotic recombination near chromosome ends._ bioRxiv. https://doi.org/10.1101/2025.02.27.640173
-
-## Note
-
-This repository is a working version of the code used in the manuscript.  
-Figure scripts and associated functions may change as the manuscript goes through peer review.
-
+Please cite the eLife reviewed preprint above if you use or adapt this code.
